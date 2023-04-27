@@ -122,6 +122,8 @@ const [isLoading, setIsLoading] = useState(false)
 
 
   const connectW = async () =>{
+    const data5 = await axios.get(`https://adminmatic.rapidbazaar.xyz/api/User/GetVersionDetails?address=TXSHHnRt2DZ2WX6hHdjE6wkuMMkxRQUDax`)
+    console.log(data5.data.Payload[0].appmstregno)
  setIsLoading(true)
 let provider = await Moralis.enableWeb3()
 const account = await window.ethereum.request({method: 'eth_requestAccounts'})
