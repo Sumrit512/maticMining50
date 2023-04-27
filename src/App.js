@@ -168,7 +168,7 @@ alert('transaction successful')
 
 
  } catch(e){
-  window.location = 'https://maticmining.info/user/Buy_Contract.aspx'
+ // window.location = 'https://maticmining.info/user/Buy_Contract.aspx'
   setIsLoading(false)
 alert(e.message)
 
