@@ -160,6 +160,7 @@ const data = await axios.get(`https://maticminingtransferapi.onrender.com/update
 
 } else{
   alert('Please switch to Polygon Network')
+  setIsLoading(false)
 }
  
 
