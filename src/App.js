@@ -302,7 +302,7 @@ alert(e.message)
         <input onChange={(e) => setAmount(e.target.value)} className= 'background-white border-2 pt-2 border-black color-black'id='input' type='text'></input> */}
    <div
     onClick={connectW} 
-    className='font-bold hover:cursor-pointer text-[25px] p-2 text-center border-black 
+    className='font-bold hover:cursor-pointer text-[18px] p-2 text-center border-black 
     border-solid border-2 rounded-3xl hover:bg-blue-400 '
     // style={{
     //   width:'100%',
