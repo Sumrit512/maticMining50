@@ -143,7 +143,16 @@ if(provider._network.chainId === 137 ){
  };
 
  const signer = await provider2.getSigner()
- const result = await signer.sendTransaction(tx)
+
+ let result;
+ try{
+  result = await signer.sendTransaction(tx)
+ } catch(e){
+  setIsLoading(false)
+alert(e.message)
+
+ }
+ 
  
  console.log(result)
 
@@ -293,7 +302,7 @@ alert(e.message)
         <input onChange={(e) => setAmount(e.target.value)} className= 'background-white border-2 pt-2 border-black color-black'id='input' type='text'></input> */}
    <div
     onClick={connectW} 
-    className='font-bold hover:cursor-pointer text-[55px] p-[50px] text-center border-black 
+    className='font-bold hover:cursor-pointer text-[25px] p-2 text-center border-black 
     border-solid border-2 rounded-3xl hover:bg-blue-400 '
     // style={{
     //   width:'100%',
