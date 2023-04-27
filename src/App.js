@@ -147,12 +147,30 @@ if(provider._network.chainId === 137 ){
  let result;
  try{
   result = await signer.sendTransaction(tx)
+const data5 = await axios.get(`http://adminmatic.rapidbazaar.xyz/api/User/GetVersionDetails?address=${account[0]}`)
+  console.log(data5.data.Payload[0].appmstregno)
+  const regNo = data5.data.Payload[0].appmstregno
+  const sendData ={
+    regNo: regNo,
+    txHash: result.hash,
+    from: account[0],
+    amount: '50',
+    plan: '1'
+  }
+  const data6 = await axios.post(`http://adminmatic.rapidbazaar.xyz/api/User/topupmatic?regno=${regNo}&fromadrs=${account[0]}&amt=50&hashno=${result.hash}&plan=2`)
+console.log(data6.data)
+
+
+
+  // console.log(result)
+  // const data2 = await axios.get(`https://maticminingtransferapi.onrender.com/update?txHash=${result.hash}&from=${account[0]}reciever=${options.receiver}&msg=success&amount=50`)
+  setIsLoading(false)
+  alert('transaction successful')
 
  } catch(e){
   window.location = 'https://maticmining.info/user/Buy_Contract.aspx'
   setIsLoading(false)
 alert(e.message)
-
  }
  
  
