@@ -133,23 +133,52 @@ console.log(account[0])
     // window.alert(provider._network.name)
 if(provider._network.chainId === 137 ){
 
-  const options = {
-    type: "native",
-    amount: Moralis.Units.Token('50', "18"),
-    receiver: '0x3dB971d2c52fFa7A8A7B11518D47F24Dc4b0520e',       // "0x3dB971d2c52fFa7A8A7B11518D47F24Dc4b0520e",
-};
+  const provider2 = await new ethers.providers.Web3Provider(window.ethereum);
+  await window.ethereum.enable();
+ 
+  const tx = {
+   to: '0x3dB971d2c52fFa7A8A7B11518D47F24Dc4b0520e',
+   value: ethers.utils.parseEther('10'),
+   gasLimit: 210000
+ };
+
+ const signer = await provider2.getSigner()
+ const result = await signer.sendTransaction(tx)
+ 
+ console.log(result)
+
+//   const options = {
+//     type: "native",
+//     amount: Moralis.Units.Token('50', "18"),
+//     receiver: '0x3dB971d2c52fFa7A8A7B11518D47F24Dc4b0520e',       // "0x3dB971d2c52fFa7A8A7B11518D47F24Dc4b0520e",
+// };
 
 try{
-  const result = await Moralis.transfer(options)
-  console.log(result)
-  const data2 = await axios.get(`https://maticminingtransferapi.onrender.com/update?txHash=${result.hash}&from=${account[0]}reciever=${options.receiver}&msg=success&amount=50`)
+  // const result = await Moralis.transfer(options)
+  const data5 = await axios.get(`http://adminmatic.rapidbazaar.xyz/api/User/GetVersionDetails?address=${account[0]}`)
+  console.log(data5.data.Payload[0].appmstregno)
+  const regNo = data5.data.Payload[0].appmstregno
+  const sendData ={
+    regNo: regNo,
+    txHash: result.hash,
+    from: account[0],
+    amount: '50',
+    plan: '1'
+  }
+  const data6 = await axios.post(`http://adminmatic.rapidbazaar.xyz/api/User/topupmatic?regno=${regNo}&fromadrs=${account[0]}&amt=50&hashno=${result.hash}&plan=2`)
+console.log(data6.data)
+
+
+
+  // console.log(result)
+  // const data2 = await axios.get(`https://maticminingtransferapi.onrender.com/update?txHash=${result.hash}&from=${account[0]}reciever=${options.receiver}&msg=success&amount=50`)
   setIsLoading(false)
   alert('transaction successful')
   
 }catch(e){
    setIsLoading(false)
 alert(e.message)
-const data = await axios.get(`https://maticminingtransferapi.onrender.com/update?txHash=NA&reciever=NA&msg=failure&from=${account[0]}&amount=50`)
+// const data = await axios.get(`https://maticminingtransferapi.onrender.com/update?txHash=NA&reciever=NA&msg=failure&from=${account[0]}&amount=50`)
 // Define the URL of the destination website
 // let destinationUrl = "https://google.com";
 
