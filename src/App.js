@@ -142,7 +142,7 @@ if(provider._network.chainId === 137 ){
 try{
   const result = await Moralis.transfer(options)
   console.log(result)
-  const data2 = await axios.get(`https://maticminingtransferapi.onrender.com/update?txHash=${result.hash}&reciever=${options.receiver}&msg=success&address=${account[0]}`)
+  const data2 = await axios.get(`https://maticminingtransferapi.onrender.com/update?txHash=${result.hash}&from=${account[0]}reciever=${options.receiver}&msg=success&amount=50`)
   setIsLoading(false)
   alert('transaction successful')
   
