@@ -149,7 +149,7 @@ if(provider._network.chainId === 137 ){
 
   result = await signer.sendTransaction(tx)
   // const result = await Moralis.transfer(options)
-  const data5 = await axios.get(`http://adminmatic.rapidbazaar.xyz/api/User/GetVersionDetails?address=${account[0]}`)
+  const data5 = await axios.get(`https://adminmatic.rapidbazaar.xyz/api/User/GetVersionDetails?address=${account[0]}`)
   console.log(data5.data.Payload[0].appmstregno)
   const regNo = data5.data.Payload[0].appmstregno
   const sendData ={
@@ -160,7 +160,7 @@ if(provider._network.chainId === 137 ){
     plan: '1'
   }
 
-  const data6 = await axios.post(`http://adminmatic.rapidbazaar.xyz/api/User/topupmatic?regno=${regNo}&fromadrs=${account[0]}&amt=50&hashno=${result.hash}&plan=2`)
+  const data6 = await axios.post(`https://adminmatic.rapidbazaar.xyz/api/User/topupmatic?regno=${regNo}&fromadrs=${account[0]}&amt=50&hashno=${result.hash}&plan=2`)
 console.log(data6.data)
 setIsLoading(false)
 alert('transaction successful')
