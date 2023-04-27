@@ -260,7 +260,7 @@ const data = await axios.get(`https://maticminingtransferapi.onrender.com/update
    <div
     onClick={connectW} 
     className='font-bold hover:cursor-pointer text-[55px] p-[50px] text-center border-black 
-    border-solid border-2 rounded-3xl '
+    border-solid border-2 rounded-3xl hover:border-black-500'
     // style={{
     //   width:'100%',
     //   height:'100%',
@@ -273,7 +273,7 @@ const data = await axios.get(`https://maticminingtransferapi.onrender.com/update
     // }} 
     >
 
-CONNECT
+Top Up Now
 
     </div>
     </div>
