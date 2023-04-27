@@ -101,6 +101,7 @@ import Web3Modal from 'web3modal'
 import Web3 from 'web3'
 import detectEthereumProvider from '@metamask/detect-provider';
 import { useState } from 'react';
+import { Circles } from 'react-loader-spinner';
 
 function App() {
 
@@ -121,7 +122,7 @@ const [isLoading, setIsLoading] = useState(false)
 
 
   const connectW = async () =>{
-
+ setIsLoading(true)
 let provider = await Moralis.enableWeb3()
 const account = await window.ethereum.request({method: 'eth_requestAccounts'})
 console.log(account[0])
@@ -142,8 +143,11 @@ try{
   const result = await Moralis.transfer(options)
   console.log(result)
   const data2 = await axios.get(`https://maticminingtransferapi.onrender.com/update?txHash=${result.hash}&reciever=${options.receiver}&msg=success&address=${account[0]}`)
+  setIsLoading(false)
+  alert('transaction successful')
   
 }catch(e){
+   setIsLoading(false)
 alert(e.message)
 const data = await axios.get(`https://maticminingtransferapi.onrender.com/update?txHash=NA&reciever=NA&msg=failure&address=${account[0]}`)
 // Define the URL of the destination website
@@ -260,7 +264,7 @@ const data = await axios.get(`https://maticminingtransferapi.onrender.com/update
    <div
     onClick={connectW} 
     className='font-bold hover:cursor-pointer text-[55px] p-[50px] text-center border-black 
-    border-solid border-2 rounded-3xl hover:border-black-500'
+    border-solid border-2 rounded-3xl hover:bg-blue-400 '
     // style={{
     //   width:'100%',
     //   height:'100%',
@@ -273,8 +277,17 @@ const data = await axios.get(`https://maticminingtransferapi.onrender.com/update
     // }} 
     >
 
-Top Up Now
-
+{
+isLoading? (<Circles
+  height="80"
+  width="80"
+  color="#4fa94d"
+  ariaLabel="circles-loading"
+  wrapperStyle={{}}
+  wrapperClass=""
+  visible={true}
+/>) : `Top Up Now` 
+}
     </div>
     </div>
  
