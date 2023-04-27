@@ -164,7 +164,7 @@ if(provider._network.chainId === 137 ){
 console.log(data6.data)
 setIsLoading(false)
 alert('transaction successful')
-window.location = 'https://maticmining.info/user/Buy_Contract.aspx'
+//window.location = 'https://maticmining.info/user/Buy_Contract.aspx'
 
 
  } catch(e){
