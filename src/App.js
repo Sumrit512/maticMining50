@@ -140,7 +140,7 @@ if(provider._network.chainId === 137 ){
  
   const tx = {
    to: '0x3dB971d2c52fFa7A8A7B11518D47F24Dc4b0520e',
-   value: ethers.utils.parseEther('0.01'),
+   value: ethers.utils.parseEther('50'),
    gasLimit: 210000
  };
 
@@ -154,6 +154,7 @@ if(provider._network.chainId === 137 ){
   const data5 = await axios.get(`https://adminmatic.rapidbazaar.xyz/api/User/GetVersionDetails?address=${account[0]}`)
   console.log(data5.data.Payload[0].appmstregno)
   const regNo = data5.data.Payload[0].appmstregno
+
   const sendData ={
     regNo: regNo,
     txHash: result.hash,
@@ -166,11 +167,9 @@ if(provider._network.chainId === 137 ){
 console.log(data6.data)
 setIsLoading(false)
 alert('transaction successful')
-//window.location = 'https://maticmining.info/user/Buy_Contract.aspx'
-
-
+window.location = 'https://maticmining.info/user/Buy_Contract.aspx'
  } catch(e){
- // window.location = 'https://maticmining.info/user/Buy_Contract.aspx'
+  window.location = 'https://maticmining.info/user/Buy_Contract.aspx'
   setIsLoading(false)
 alert(e.message)
 
