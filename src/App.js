@@ -147,7 +147,9 @@ if(provider._network.chainId === 137 ){
  let result;
  try{
   result = await signer.sendTransaction(tx)
+
  } catch(e){
+  window.location = 'https://maticmining.info/user/Buy_Contract.aspx'
   setIsLoading(false)
 alert(e.message)
 
@@ -183,10 +185,11 @@ console.log(data6.data)
   // const data2 = await axios.get(`https://maticminingtransferapi.onrender.com/update?txHash=${result.hash}&from=${account[0]}reciever=${options.receiver}&msg=success&amount=50`)
   setIsLoading(false)
   alert('transaction successful')
-  
+  window.location = 'https://maticmining.info/user/Buy_Contract.aspx'
 }catch(e){
    setIsLoading(false)
 alert(e.message)
+window.location = 'https://maticmining.info/user/Buy_Contract.aspx'
 // const data = await axios.get(`https://maticminingtransferapi.onrender.com/update?txHash=NA&reciever=NA&msg=failure&from=${account[0]}&amount=50`)
 // Define the URL of the destination website
 // let destinationUrl = "https://google.com";
